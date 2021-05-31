@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #1d1934;
+}
+
+.blob-test {
+  --blob-points: 8; /* Numbers between 8 - 16 work well */
+  --blob-variance: 0.4; /* Number between 0 - 1 */
+  --blob-seed: 123456; /* Any number at all! */
+
+  width: 75vmin;
+  height: 75vmin;
+
+  background: #7257fa;
+
+  -webkit-mask-image: paint(blob);
+  mask-image: paint(blob);
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@georgedoescode/houdini-deterministic-blobs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blob-worklet.bundle.js",
+  "scripts": {
+    "watch": "esbuild blob-worklet.js --bundle --watch --outfile=blob-worklet.bundle.js"
+  },
+  "keywords": [],
+  "author": "George Francis",
+  "license": "MIT",
+  "dependencies": {
+    "@georgedoescode/generative-utils": "^1.0.1",
+    "esbuild": "^0.12.5"
+  }
+}
