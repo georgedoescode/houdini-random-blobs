@@ -1,5 +1,5 @@
 {
-  "name": "@georgedoescode/houdini-deterministic-blobs",
+  "name": "@georgedoescode/houdini-random-blobs",
   "version": "1.0.0",
   "description": "",
   "main": "blob-worklet.bundle.js",
