@@ -93,7 +93,6 @@
         const lerpPosition = map(random2(), 0, 1, 0, variance);
         points.push(lerp(point, center, lerpPosition));
       }
-      ctx.fillStyle = "#000";
       ctx.beginPath();
       spline(points, 1, true, (CMD, data) => {
         if (CMD === "MOVE") {

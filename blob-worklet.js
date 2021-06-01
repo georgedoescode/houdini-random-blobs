@@ -1,5 +1,7 @@
+// more about these utilities here: https://georgefrancis.dev/writing/a-generative-svg-starter-kit/
 import { spline, map } from "@georgedoescode/generative-utils";
 
+// source: https://github.com/bryc/code/blob/master/jshash/PRNGs.md
 function mulberry32(a) {
   return function () {
     a |= 0;
@@ -10,6 +12,7 @@ function mulberry32(a) {
   };
 }
 
+// linear interpolation helper - get a point between 2 points
 function lerp(position, target, amt) {
   return {
     x: (position.x += (target.x - position.x) * amt),
@@ -30,7 +33,10 @@ class Blob {
 
     /* 
       "reset" our random number generator each time paint() is run,
-      this will ensure our blob does not change unless it's input properties do.
+      this will ensure our blob shape does not change unless it's input properties do.
+
+      If we used Math.random() here, the random values (and therefore shape) of our blob would 
+      change every time the target element was resized, updated, etc.
     */
     const random = mulberry32(seed);
 
@@ -59,12 +65,8 @@ class Blob {
     }
 
     // blob-render-time!
-
-    // ensure our blob is good for masking
-    ctx.fillStyle = "#000";
-
     ctx.beginPath();
-    // draw a catmull-rom spline through each point
+    // draw a closed catmull-rom spline through each point
     spline(points, 1, true, (CMD, data) => {
       if (CMD === "MOVE") {
         ctx.moveTo(...data);
