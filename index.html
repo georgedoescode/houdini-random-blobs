@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
-    <div class="blob-test"></div>
+    <div class="worklet-canvas"></div>
     <script>
       (async function () {
         if (CSS["paintWorklet"] === undefined) {
           await import("https://unpkg.com/css-paint-polyfill");
         }
 
-        CSS.paintWorklet.addModule("./blob-worklet.bundle.js");
+        CSS.paintWorklet.addModule("./worklet.bundle.js");
+
+        document
+          .querySelector(".worklet-canvas")
+          .style.setProperty("--blob-seed", Math.random() * 10000);
       })();
     </script>
   </body>
